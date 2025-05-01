@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom colors for our crazy UI
+				crazy: {
+					purple: '#9b87f5',
+					darkPurple: '#6E59A5',
+					neonGreen: '#CCFF00',
+					hotPink: '#FF1493',
+					vibrantOrange: '#FF5F1F',
+					electricBlue: '#00FFFF',
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -69,27 +79,54 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+				"accordion-down": {
+					from: { height: "0" },
+					to: { height: "var(--radix-accordion-content-height)" },
 				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
+				"accordion-up": {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0" },
+				},
+				"wiggle": {
+					'0%, 100%': { transform: 'rotate(-3deg)' },
+					'50%': { transform: 'rotate(3deg)' },
+				},
+				"bounce-slight": {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' },
+				},
+				"scale-up": {
+					'0%': { transform: 'scale(0.8)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' },
+				},
+				"float": {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				"rotate-grow": {
+					'0%': { transform: 'rotate(0deg) scale(1)' },
+					'50%': { transform: 'rotate(180deg) scale(1.2)' },
+					'100%': { transform: 'rotate(360deg) scale(1)' },
+				},
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"wiggle": "wiggle 1s ease-in-out infinite",
+				"bounce-slight": "bounce-slight 2s ease-in-out infinite",
+				"scale-up": "scale-up 0.3s ease-out",
+				"float": "float 3s ease-in-out infinite",
+				"rotate-grow": "rotate-grow 2s ease-in-out",
+			},
+			fontFamily: {
+				'crazy': ['Comic Sans MS', 'Comic Sans', 'cursive'],
+			},
+			boxShadow: {
+				'neon': '0 0 5px theme("colors.crazy.neonGreen"), 0 0 20px theme("colors.crazy.neonGreen")',
+				'3d': '5px 5px 0px #000',
+				'3d-hover': '8px 8px 0px #000',
+				'inner-wild': 'inset 0 0 15px theme("colors.crazy.hotPink")',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
